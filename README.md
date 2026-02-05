@@ -20,74 +20,81 @@ Rust est le langage idéal pour cette nouvelle ère : il combine la performance 
 ## Structure du livre
 
 ### [Partie I — Le Mindset Rust Desktop](./partie-1-mindset-rust-desktop/)
+
 Comprendre pourquoi Rust est le choix idéal pour le développement desktop moderne et adopter la bonne philosophie produit.
 
-1. [Pourquoi Rust pour le logiciel moderne](./partie-1-mindset-rust-desktop/01-pourquoi-rust.md)
-2. [Desktop is back](./partie-1-mindset-rust-desktop/02-desktop-is-back.md)
-3. [Penser produit, pas repo GitHub](./partie-1-mindset-rust-desktop/03-penser-produit.md)
+1. [Pourquoi Rust pour le logiciel moderne](./partie-1-mindset-rust-desktop/01-pourquoi-rust/)
+2. [Desktop is back](./partie-1-mindset-rust-desktop/02-desktop-is-back/)
+3. [Penser produit, pas repo GitHub](./partie-1-mindset-rust-desktop/03-penser-produit/)
 
 ### [Partie II — Fondations Rust Solides](./partie-2-fondations-rust/)
+
 Maîtriser les concepts Rust essentiels pour construire des applications robustes.
 
-1. [Rust pour développeurs pragmatiques](./partie-2-fondations-rust/01-rust-pragmatique.md)
-2. [Organiser un vrai projet](./partie-2-fondations-rust/02-organiser-projet.md)
-3. [Async et concurrence desktop](./partie-2-fondations-rust/03-async-concurrence.md)
-4. [Logs, debug et profiling](./partie-2-fondations-rust/04-logs-debug-profiling.md)
+1. [Rust pour développeurs pragmatiques](./partie-2-fondations-rust/01-rust-pragmatique/)
+2. [Organiser un vrai projet](./partie-2-fondations-rust/02-organiser-projet/)
+3. [Async et concurrence desktop](./partie-2-fondations-rust/03-async-concurrence/)
+4. [Logs, debug et profiling](./partie-2-fondations-rust/04-logs-debug-profiling/)
 
 ### [Partie III — Interfaces Modernes en Rust](./partie-3-interfaces-modernes/)
+
 Construire des interfaces utilisateur professionnelles avec les frameworks Rust.
 
-1. [Panorama des frameworks UI](./partie-3-interfaces-modernes/01-panorama-frameworks.md)
-2. [Construire une UI avec egui](./partie-3-interfaces-modernes/02-construire-ui-egui.md)
-3. [Créer son Design System](./partie-3-interfaces-modernes/03-design-system.md)
-4. [Composants réutilisables](./partie-3-interfaces-modernes/04-composants-reutilisables.md)
-5. [Patterns UX professionnels](./partie-3-interfaces-modernes/05-patterns-ux.md)
-6. [Du wireframe SVG au code Rust](./partie-3-interfaces-modernes/06-wireframe-vers-code.md)
+1. [Panorama des frameworks UI](./partie-3-interfaces-modernes/01-panorama-frameworks/)
+2. [Construire une UI avec egui](./partie-3-interfaces-modernes/02-construire-ui-egui/)
+3. [Créer son Design System](./partie-3-interfaces-modernes/03-design-system/)
+4. [Composants réutilisables](./partie-3-interfaces-modernes/04-composants-reutilisables/)
+5. [Patterns UX professionnels](./partie-3-interfaces-modernes/05-patterns-ux/)
+6. [Du wireframe SVG au code Rust](./partie-3-interfaces-modernes/06-wireframe-vers-code/)
 
 ### [Partie IV — Architecture d'un Vrai Logiciel](./partie-4-architecture-logiciel/)
+
 Structurer une application maintenable et évolutive.
 
-1. [Clean architecture pour apps desktop](./partie-4-architecture-logiciel/01-clean-architecture.md)
-2. [Event bus et communication interne](./partie-4-architecture-logiciel/02-event-bus.md)
-3. [Gestion d'état robuste](./partie-4-architecture-logiciel/03-gestion-etat.md)
-4. [Stockage local souverain](./partie-4-architecture-logiciel/04-stockage-local.md)
-5. [Fichiers, import, export et PDF](./partie-4-architecture-logiciel/05-fichiers-import-export.md)
-6. [Plugins et extensibilité](./partie-4-architecture-logiciel/06-plugins-extensibilite.md)
+1. [Clean Architecture pour apps desktop](./partie-4-architecture-logiciel/01-clean-architecture/)
+2. [Event Bus et communication interne](./partie-4-architecture-logiciel/02-event-bus/)
+3. [Gestion d'état robuste](./partie-4-architecture-logiciel/03-gestion-etat/)
+4. [Stockage local souverain](./partie-4-architecture-logiciel/04-stockage-local/)
+5. [Fichiers, import, export et PDF](./partie-4-architecture-logiciel/05-fichiers-import-export/)
+6. [Plugins et extensibilité](./partie-4-architecture-logiciel/06-plugins-extensibilite/)
 
 ### [Partie V — Blocs Métiers Réels](./partie-5-blocs-metiers/)
+
 Implémenter des fonctionnalités business concrètes.
 
-1. [Construire un mini-ERP Rust](./partie-5-blocs-metiers/01-mini-erp.md)
-2. [Moteur de recherche local](./partie-5-blocs-metiers/02-moteur-recherche.md)
-3. [Dashboard et visualisation de données](./partie-5-blocs-metiers/03-dashboard-visualisation.md)
-4. [IA locale dans une app Rust](./partie-5-blocs-metiers/04-ia-locale.md)
-5. [Cas d'étude complet](./partie-5-blocs-metiers/05-cas-etude-complet.md)
+1. [Construire un mini-ERP Rust](./partie-5-blocs-metiers/01-mini-erp/)
+2. [Moteur de recherche local](./partie-5-blocs-metiers/02-moteur-recherche/)
+3. [Dashboard et visualisation de données](./partie-5-blocs-metiers/03-dashboard-visualisation/)
+4. [IA locale dans une app Rust](./partie-5-blocs-metiers/04-ia-locale/)
+5. [Cas d'étude complet](./partie-5-blocs-metiers/05-cas-etude-complet/)
 
 ### [Partie VI — Finition et Qualité Produit](./partie-6-finition-qualite/)
+
 Polir l'application pour une qualité professionnelle.
 
-1. [Performance perçue](./partie-6-finition-qualite/01-performance-percue.md)
-2. [Accessibilité et ergonomie](./partie-6-finition-qualite/02-accessibilite-ergonomie.md)
-3. [Packaging multiplateforme](./partie-6-finition-qualite/03-packaging-multiplateforme.md)
-4. [Tests UI et assurance qualité](./partie-6-finition-qualite/04-tests-ui-qualite.md)
+1. [Performance perçue](./partie-6-finition-qualite/01-performance-percue/)
+2. [Accessibilité et ergonomie](./partie-6-finition-qualite/02-accessibilite-ergonomie/)
+3. [Packaging multiplateforme](./partie-6-finition-qualite/03-packaging-multiplateforme/)
+4. [Tests UI et assurance qualité](./partie-6-finition-qualite/04-tests-ui-qualite/)
 
 ### [Partie VII — Production et Business](./partie-7-production-business/)
+
 Transformer le code en produit viable.
 
-1. [Open source vs produit commercial](./partie-7-production-business/01-opensource-vs-commercial.md)
-2. [Vendre un logiciel desktop aujourd'hui](./partie-7-production-business/02-vendre-logiciel-desktop.md)
-3. [Souveraineté numérique et données locales](./partie-7-production-business/03-souverainete-numerique.md)
-4. [Créer son starter kit Rust réutilisable](./partie-7-production-business/04-starter-kit.md)
-5. [Lancer et itérer](./partie-7-production-business/05-lancer-iterer.md)
+1. [Licences et modèles économiques](./partie-7-production-business/01-licences-modeles-economiques/)
+2. [Distribution et marketing](./partie-7-production-business/02-distribution-marketing/)
+3. [Support et maintenance](./partie-7-production-business/03-support-maintenance/)
+4. [Monétisation avancée](./partie-7-production-business/04-monetisation-avancee/)
+5. [Vision long terme](./partie-7-production-business/05-vision-long-terme/)
 
 ### [Annexes](./annexes/)
 
-- [A. Starter kit Rust desktop](./annexes/A-starter-kit.md)
-- [B. Design tokens JSON](./annexes/B-design-tokens.md)
-- [C. Structure d'architecture exemple](./annexes/C-structure-architecture.md)
-- [D. Cheatsheet egui](./annexes/D-cheatsheet-egui.md)
-- [E. Checklist ready to ship](./annexes/E-checklist-ship.md)
-- [F. Ressources et crates utiles](./annexes/F-ressources-crates.md)
+- [A. Cargo.toml complet](./annexes/A-cargo-toml-complet.md)
+- [B. Cheatsheet egui](./annexes/B-cheatsheet-egui.md)
+- [C. Patterns Rust](./annexes/C-patterns-rust.md)
+- [D. Checklist de lancement](./annexes/D-checklist-lancement.md)
+- [E. Ressources et liens](./annexes/E-ressources-liens.md)
+- [F. Glossaire](./annexes/F-glossaire.md)
 
 ## Prérequis
 
@@ -118,6 +125,10 @@ fn main() -> eframe::Result<()> {
     )
 }
 ```
+
+## Licence
+
+Ce livre est publié sous licence MIT. Vous êtes libre de l'utiliser, le modifier et le distribuer.
 
 ---
 
