@@ -1,307 +1,446 @@
 # Rust Desktop Mastery
 
-## Architecture, UI, Design System et Mise en Production d'Applications Rust Réelles
+<p align="center">
+  <strong>Architecture, UI, Design System et Mise en Production d'Applications Rust Réelles</strong>
+</p>
+
+<p align="center">
+  <em>Le guide complet pour créer des applications desktop professionnelles en Rust</em>
+</p>
 
 ---
 
+## Vue d'ensemble
+
 Ce livre est un guide complet pour créer des applications desktop professionnelles en Rust. Il couvre l'ensemble du cycle de développement : de la conception architecturale au déploiement, en passant par la création d'interfaces modernes et de systèmes de design réutilisables.
+
+| Statistiques du livre |  |
+|----------------------|---|
+| **Parties** | 7 |
+| **Chapitres** | 33 |
+| **Sous-sections** | 100+ |
+| **Annexes** | 6 |
 
 ## Pourquoi ce livre ?
 
 Le développement desktop connaît une renaissance. Après des années de domination du web et des applications SaaS, les développeurs et les entreprises redécouvrent les avantages des applications natives :
 
-- **Performance** : Démarrage instantané, réactivité parfaite
-- **Souveraineté** : Données locales, pas de dépendance cloud
-- **Fiabilité** : Fonctionne hors ligne, pas d'abonnement
-- **Simplicité** : Un binaire, pas d'infrastructure
+| Approche Web/SaaS | Approche Desktop Rust |
+|-------------------|----------------------|
+| Latence réseau | Réponse instantanée |
+| Abonnement mensuel | Achat unique possible |
+| Données sur serveur tiers | Données 100% locales |
+| Dépendance internet | Fonctionne offline |
+| Complexité infrastructure | Un seul fichier binaire |
 
-Rust est le langage idéal pour cette nouvelle ère : il combine la performance du C++ avec la sécurité mémoire et une ergonomie moderne.
+**Rust** est le langage idéal pour cette nouvelle ère : il combine la performance du C++ avec la sécurité mémoire et une ergonomie moderne.
+
+---
 
 ## Structure du livre
 
 ### [Partie I — Le Mindset Rust Desktop](./partie-1-mindset-rust-desktop/)
 
-Comprendre pourquoi Rust est le choix idéal pour le développement desktop moderne et adopter la bonne philosophie produit.
+> **Objectif** : Comprendre pourquoi Rust est le choix idéal pour le desktop et adopter la bonne philosophie produit.
+
+Cette partie pose les fondations philosophiques et stratégiques. Avant d'écrire une seule ligne de code, il est crucial de comprendre *pourquoi* nous faisons ces choix.
 
 #### [Chapitre 1 : Pourquoi Rust pour le logiciel moderne](./partie-1-mindset-rust-desktop/01-pourquoi-rust/)
-- [La fatigue JS / Electron / SaaS](./partie-1-mindset-rust-desktop/01-pourquoi-rust/01-fatigue-js-electron.md)
-- [Performance native](./partie-1-mindset-rust-desktop/01-pourquoi-rust/02-performance-native.md)
-- [Sécurité mémoire](./partie-1-mindset-rust-desktop/01-pourquoi-rust/03-securite-memoire.md)
-- [Binaire unique](./partie-1-mindset-rust-desktop/01-pourquoi-rust/04-binaire-unique.md)
-- [Offline-first](./partie-1-mindset-rust-desktop/01-pourquoi-rust/05-offline-first.md)
-- [Souveraineté des données](./partie-1-mindset-rust-desktop/01-pourquoi-rust/06-souverainete-donnees.md)
+
+> Explore les raisons fondamentales qui font de Rust le choix idéal : fatigue de l'écosystème JS/Electron, performance native, sécurité mémoire, et souveraineté des données.
+
+- [La fatigue JS / Electron / SaaS](./partie-1-mindset-rust-desktop/01-pourquoi-rust/01-fatigue-js-electron.md) — Problèmes de mémoire, taille, instabilité npm
+- [Performance native](./partie-1-mindset-rust-desktop/01-pourquoi-rust/02-performance-native.md) — Zero-cost abstractions, comparaison avec JS/JVM
+- [Sécurité mémoire](./partie-1-mindset-rust-desktop/01-pourquoi-rust/03-securite-memoire.md) — Ownership, borrowing, null safety
+- [Binaire unique](./partie-1-mindset-rust-desktop/01-pourquoi-rust/04-binaire-unique.md) — Déploiement simplifié, pas de DLL hell
+- [Offline-first](./partie-1-mindset-rust-desktop/01-pourquoi-rust/05-offline-first.md) — Architecture locale par défaut
+- [Souveraineté des données](./partie-1-mindset-rust-desktop/01-pourquoi-rust/06-souverainete-donnees.md) — Contrôle utilisateur, RGPD
 
 #### [Chapitre 2 : Desktop is back](./partie-1-mindset-rust-desktop/02-desktop-is-back/)
-- [Le retour des apps locales](./partie-1-mindset-rust-desktop/02-desktop-is-back/01-retour-apps-locales.md)
-- [UX supérieure au navigateur](./partie-1-mindset-rust-desktop/02-desktop-is-back/02-ux-superieure.md)
-- [IA locale, SQLite, fichiers](./partie-1-mindset-rust-desktop/02-desktop-is-back/03-ia-locale-sqlite.md)
-- [Cas concrets : ERP, notes, outils, automation](./partie-1-mindset-rust-desktop/02-desktop-is-back/04-cas-concrets.md)
-- [Quand ne pas utiliser le web](./partie-1-mindset-rust-desktop/02-desktop-is-back/05-quand-pas-web.md)
+
+> Le retour en force des applications locales : pourquoi et quand le desktop surpasse le web.
+
+- [Le retour des apps locales](./partie-1-mindset-rust-desktop/02-desktop-is-back/01-retour-apps-locales.md) — Tendances et motivations
+- [UX supérieure au navigateur](./partie-1-mindset-rust-desktop/02-desktop-is-back/02-ux-superieure.md) — Raccourcis, intégration système
+- [IA locale, SQLite, fichiers](./partie-1-mindset-rust-desktop/02-desktop-is-back/03-ia-locale-sqlite.md) — Technologies clés
+- [Cas concrets](./partie-1-mindset-rust-desktop/02-desktop-is-back/04-cas-concrets.md) — ERP, notes, outils, automation
+- [Quand ne pas utiliser le web](./partie-1-mindset-rust-desktop/02-desktop-is-back/05-quand-pas-web.md) — Critères de décision
 
 #### [Chapitre 3 : Penser produit, pas repo GitHub](./partie-1-mindset-rust-desktop/03-penser-produit/)
-- [Ship plutôt que démo](./partie-1-mindset-rust-desktop/03-penser-produit/01-ship-plutot-que-demo.md)
-- [Logiciel utilisable 8 heures par jour](./partie-1-mindset-rust-desktop/03-penser-produit/02-logiciel-8h-jour.md)
-- [Dette UX vs dette technique](./partie-1-mindset-rust-desktop/03-penser-produit/03-dette-ux-vs-technique.md)
-- [Le design comme avantage concurrentiel](./partie-1-mindset-rust-desktop/03-penser-produit/04-design-avantage-concurrentiel.md)
+
+> Adopter une mentalité produit orientée utilisateur plutôt qu'une approche technique.
+
+- [Ship plutôt que démo](./partie-1-mindset-rust-desktop/03-penser-produit/01-ship-plutot-que-demo.md) — Livrer de la valeur
+- [Logiciel utilisable 8h/jour](./partie-1-mindset-rust-desktop/03-penser-produit/02-logiciel-8h-jour.md) — Ergonomie professionnelle
+- [Dette UX vs dette technique](./partie-1-mindset-rust-desktop/03-penser-produit/03-dette-ux-vs-technique.md) — Prioriser l'expérience
+- [Le design comme avantage](./partie-1-mindset-rust-desktop/03-penser-produit/04-design-avantage-concurrentiel.md) — Différenciation
 
 ---
 
 ### [Partie II — Fondations Rust Solides](./partie-2-fondations-rust/)
 
-Maîtriser les concepts Rust essentiels pour construire des applications robustes.
+> **Objectif** : Maîtriser les concepts Rust essentiels pour construire des applications robustes.
+
+Cette partie couvre les concepts Rust nécessaires au développement desktop. L'objectif n'est pas d'enseigner Rust depuis zéro, mais de maîtriser les patterns spécifiques aux applications réelles.
 
 #### [Chapitre 4 : Rust pour développeurs pragmatiques](./partie-2-fondations-rust/01-rust-pragmatique/)
-- [Ownership expliqué simplement](./partie-2-fondations-rust/01-rust-pragmatique/01-ownership-simplement.md)
-- [Borrow checker sans douleur](./partie-2-fondations-rust/01-rust-pragmatique/02-borrow-checker.md)
-- [Erreurs idiomatiques](./partie-2-fondations-rust/01-rust-pragmatique/03-erreurs-idiomatiques.md)
-- [Patterns utiles](./partie-2-fondations-rust/01-rust-pragmatique/04-patterns-utiles.md)
+
+> Les concepts Rust essentiels expliqués de manière pratique, avec focus sur le développement desktop.
+
+- [Ownership expliqué simplement](./partie-2-fondations-rust/01-rust-pragmatique/01-ownership-simplement.md) — Les 3 règles, Move vs Copy
+- [Borrow checker sans douleur](./partie-2-fondations-rust/01-rust-pragmatique/02-borrow-checker.md) — Références, règle d'or
+- [Erreurs idiomatiques](./partie-2-fondations-rust/01-rust-pragmatique/03-erreurs-idiomatiques.md) — Result, Option, thiserror, anyhow
+- [Patterns utiles](./partie-2-fondations-rust/01-rust-pragmatique/04-patterns-utiles.md) — Builder, Newtype, State Machine
 
 #### [Chapitre 5 : Organiser un vrai projet](./partie-2-fondations-rust/02-organiser-projet/)
-- [Cargo Workspace](./partie-2-fondations-rust/02-organiser-projet/01-cargo-workspace.md)
-- [Crates Modulaires](./partie-2-fondations-rust/02-organiser-projet/02-crates-modulaires.md)
-- [Architecture de Dossiers Claire](./partie-2-fondations-rust/02-organiser-projet/03-architecture-dossiers.md)
-- [Tests et Benchmarks](./partie-2-fondations-rust/02-organiser-projet/04-tests-benchmarks.md)
+
+> Structurer une application Rust professionnelle, maintenable et évolutive.
+
+- [Cargo Workspace](./partie-2-fondations-rust/02-organiser-projet/01-cargo-workspace.md) — Multi-crates, configuration
+- [Crates Modulaires](./partie-2-fondations-rust/02-organiser-projet/02-crates-modulaires.md) — Core, storage, UI séparés
+- [Architecture de Dossiers](./partie-2-fondations-rust/02-organiser-projet/03-architecture-dossiers.md) — Conventions, organisation
+- [Tests et Benchmarks](./partie-2-fondations-rust/02-organiser-projet/04-tests-benchmarks.md) — Unitaires, intégration, Criterion
 
 #### [Chapitre 6 : Async et concurrence desktop](./partie-2-fondations-rust/03-async-concurrence/)
-- [Tokio](./partie-2-fondations-rust/03-async-concurrence/01-tokio.md)
-- [Channels (crossbeam)](./partie-2-fondations-rust/03-async-concurrence/02-channels-crossbeam.md)
-- [Arc et ArcSwap](./partie-2-fondations-rust/03-async-concurrence/03-arc-arcswap.md)
-- [Thread UI vs workers](./partie-2-fondations-rust/03-async-concurrence/04-thread-ui-workers.md)
-- [Éviter les freezes](./partie-2-fondations-rust/03-async-concurrence/05-eviter-freezes.md)
+
+> Gérer la concurrence sans bloquer l'interface utilisateur.
+
+- [Tokio](./partie-2-fondations-rust/03-async-concurrence/01-tokio.md) — Runtime async pour desktop
+- [Channels (crossbeam)](./partie-2-fondations-rust/03-async-concurrence/02-channels-crossbeam.md) — Communication inter-threads
+- [Arc et ArcSwap](./partie-2-fondations-rust/03-async-concurrence/03-arc-arcswap.md) — Partage de données thread-safe
+- [Thread UI vs workers](./partie-2-fondations-rust/03-async-concurrence/04-thread-ui-workers.md) — Séparation des responsabilités
+- [Éviter les freezes](./partie-2-fondations-rust/03-async-concurrence/05-eviter-freezes.md) — UI toujours réactive
 
 #### [Chapitre 7 : Logs, debug et profiling](./partie-2-fondations-rust/04-logs-debug-profiling/)
-- [Tracing](./partie-2-fondations-rust/04-logs-debug-profiling/01-tracing.md)
-- [Logs visuels](./partie-2-fondations-rust/04-logs-debug-profiling/02-logs-visuels.md)
-- [Flamegraphs](./partie-2-fondations-rust/04-logs-debug-profiling/03-flamegraphs.md)
-- [Optimiser sans se mentir](./partie-2-fondations-rust/04-logs-debug-profiling/04-optimiser-sans-mentir.md)
+
+> Diagnostiquer et optimiser les performances de manière rigoureuse.
+
+- [Tracing](./partie-2-fondations-rust/04-logs-debug-profiling/01-tracing.md) — Logs structurés, spans, niveaux
+- [Logs visuels](./partie-2-fondations-rust/04-logs-debug-profiling/02-logs-visuels.md) — Panel de logs intégré
+- [Flamegraphs](./partie-2-fondations-rust/04-logs-debug-profiling/03-flamegraphs.md) — Profiling visuel
+- [Optimiser sans se mentir](./partie-2-fondations-rust/04-logs-debug-profiling/04-optimiser-sans-mentir.md) — Mesurer avant d'optimiser
 
 ---
 
 ### [Partie III — Interfaces Modernes en Rust](./partie-3-interfaces-modernes/)
 
-Construire des interfaces utilisateur professionnelles avec les frameworks Rust.
+> **Objectif** : Construire des interfaces utilisateur professionnelles et réactives.
+
+Cette partie est consacrée à la création d'UI en Rust. Nous couvrons les frameworks disponibles, les patterns de design system, et les techniques pour construire des interfaces modernes.
 
 #### [Chapitre 8 : Panorama des frameworks UI](./partie-3-interfaces-modernes/01-panorama-frameworks/)
-- [egui](./partie-3-interfaces-modernes/01-panorama-frameworks/01-egui.md)
-- [Tauri](./partie-3-interfaces-modernes/01-panorama-frameworks/02-tauri.md)
-- [wgpu](./partie-3-interfaces-modernes/01-panorama-frameworks/03-wgpu.md)
-- [iced](./partie-3-interfaces-modernes/01-panorama-frameworks/04-iced.md)
-- [Quand choisir quoi](./partie-3-interfaces-modernes/01-panorama-frameworks/05-quand-choisir-quoi.md)
+
+> Comparaison détaillée des frameworks UI Rust pour choisir le bon outil.
+
+- [egui](./partie-3-interfaces-modernes/01-panorama-frameworks/01-egui.md) — Immediate mode, simple et rapide
+- [Tauri](./partie-3-interfaces-modernes/01-panorama-frameworks/02-tauri.md) — Web frontend + Rust backend
+- [wgpu](./partie-3-interfaces-modernes/01-panorama-frameworks/03-wgpu.md) — GPU rendering bas niveau
+- [iced](./partie-3-interfaces-modernes/01-panorama-frameworks/04-iced.md) — Déclaratif, style Elm
+- [Quand choisir quoi](./partie-3-interfaces-modernes/01-panorama-frameworks/05-quand-choisir-quoi.md) — Matrice de décision
 
 #### [Chapitre 9 : Construire une UI avec egui](./partie-3-interfaces-modernes/02-construire-ui-egui/)
-- [Immediate mode mental model](./partie-3-interfaces-modernes/02-construire-ui-egui/01-immediate-mode.md)
-- [Layouts](./partie-3-interfaces-modernes/02-construire-ui-egui/02-layouts.md)
-- [Widgets](./partie-3-interfaces-modernes/02-construire-ui-egui/03-widgets.md)
-- [Gestion propre de l'état](./partie-3-interfaces-modernes/02-construire-ui-egui/04-gestion-etat.md)
+
+> Guide pratique complet pour maîtriser egui, le framework choisi pour ce livre.
+
+- [Immediate mode](./partie-3-interfaces-modernes/02-construire-ui-egui/01-immediate-mode.md) — Concept et mental model
+- [Layouts](./partie-3-interfaces-modernes/02-construire-ui-egui/02-layouts.md) — Vertical, horizontal, grid, panels
+- [Widgets](./partie-3-interfaces-modernes/02-construire-ui-egui/03-widgets.md) — De base et avancés
+- [Gestion de l'état](./partie-3-interfaces-modernes/02-construire-ui-egui/04-gestion-etat.md) — Local vs global, persistence
 
 #### [Chapitre 10 : Créer son Design System](./partie-3-interfaces-modernes/03-design-system/)
-- [Tokens](./partie-3-interfaces-modernes/03-design-system/01-tokens.md)
-- [Couleurs](./partie-3-interfaces-modernes/03-design-system/02-couleurs.md)
-- [Spacing](./partie-3-interfaces-modernes/03-design-system/03-spacing.md)
-- [Typographie](./partie-3-interfaces-modernes/03-design-system/04-typographie.md)
-- [Thèmes](./partie-3-interfaces-modernes/03-design-system/05-themes.md)
-- [DPI scaling](./partie-3-interfaces-modernes/03-design-system/06-dpi-scaling.md)
+
+> Construire un système de design cohérent et maintenable.
+
+- [Tokens](./partie-3-interfaces-modernes/03-design-system/01-tokens.md) — Variables de design centralisées
+- [Couleurs](./partie-3-interfaces-modernes/03-design-system/02-couleurs.md) — Palettes, sémantique
+- [Spacing](./partie-3-interfaces-modernes/03-design-system/03-spacing.md) — Grille, marges, paddings
+- [Typographie](./partie-3-interfaces-modernes/03-design-system/04-typographie.md) — Hiérarchie, lisibilité
+- [Thèmes](./partie-3-interfaces-modernes/03-design-system/05-themes.md) — Dark/light mode
+- [DPI scaling](./partie-3-interfaces-modernes/03-design-system/06-dpi-scaling.md) — Support multi-résolutions
 
 #### [Chapitre 11 : Composants réutilisables](./partie-3-interfaces-modernes/04-composants-reutilisables/)
-- [Button](./partie-3-interfaces-modernes/04-composants-reutilisables/01-button.md)
-- [Input](./partie-3-interfaces-modernes/04-composants-reutilisables/02-input.md)
-- [Table](./partie-3-interfaces-modernes/04-composants-reutilisables/03-table.md)
-- [Sidebar](./partie-3-interfaces-modernes/04-composants-reutilisables/04-sidebar.md)
-- [Modals](./partie-3-interfaces-modernes/04-composants-reutilisables/05-modals.md)
-- [Toasts](./partie-3-interfaces-modernes/04-composants-reutilisables/06-toasts.md)
-- [Inspector panels](./partie-3-interfaces-modernes/04-composants-reutilisables/07-inspector-panels.md)
-- [Command palette](./partie-3-interfaces-modernes/04-composants-reutilisables/08-command-palette.md)
+
+> Bibliothèque de composants UI professionnels prêts à l'emploi.
+
+- [Button](./partie-3-interfaces-modernes/04-composants-reutilisables/01-button.md) — Variantes, états, icônes
+- [Input](./partie-3-interfaces-modernes/04-composants-reutilisables/02-input.md) — Texte, validation, masques
+- [Table](./partie-3-interfaces-modernes/04-composants-reutilisables/03-table.md) — Tri, pagination, sélection
+- [Sidebar](./partie-3-interfaces-modernes/04-composants-reutilisables/04-sidebar.md) — Navigation, collapse
+- [Modals](./partie-3-interfaces-modernes/04-composants-reutilisables/05-modals.md) — Dialogues, confirmations
+- [Toasts](./partie-3-interfaces-modernes/04-composants-reutilisables/06-toasts.md) — Notifications temporaires
+- [Inspector panels](./partie-3-interfaces-modernes/04-composants-reutilisables/07-inspector-panels.md) — Propriétés, détails
+- [Command palette](./partie-3-interfaces-modernes/04-composants-reutilisables/08-command-palette.md) — Recherche d'actions (Ctrl+K)
 
 #### [Chapitre 12 : Patterns UX professionnels](./partie-3-interfaces-modernes/05-patterns-ux/)
-- [Loading](./partie-3-interfaces-modernes/05-patterns-ux/01-loading.md)
-- [Empty states](./partie-3-interfaces-modernes/05-patterns-ux/02-empty-states.md)
-- [Erreurs](./partie-3-interfaces-modernes/05-patterns-ux/03-erreurs.md)
-- [Undo et redo](./partie-3-interfaces-modernes/05-patterns-ux/04-undo-redo.md)
-- [Autosave](./partie-3-interfaces-modernes/05-patterns-ux/05-autosave.md)
-- [Feedback instantané](./partie-3-interfaces-modernes/05-patterns-ux/06-feedback-instantane.md)
+
+> Les patterns UX qui font la différence entre une app amateur et professionnelle.
+
+- [Loading](./partie-3-interfaces-modernes/05-patterns-ux/01-loading.md) — États de chargement
+- [Empty states](./partie-3-interfaces-modernes/05-patterns-ux/02-empty-states.md) — Écrans vides informatifs
+- [Erreurs](./partie-3-interfaces-modernes/05-patterns-ux/03-erreurs.md) — Messages clairs et actionnables
+- [Undo et redo](./partie-3-interfaces-modernes/05-patterns-ux/04-undo-redo.md) — Historique d'actions
+- [Autosave](./partie-3-interfaces-modernes/05-patterns-ux/05-autosave.md) — Sauvegarde transparente
+- [Feedback instantané](./partie-3-interfaces-modernes/05-patterns-ux/06-feedback-instantane.md) — Réponse < 100ms
 
 #### [Chapitre 13 : Du wireframe SVG au code Rust](./partie-3-interfaces-modernes/06-wireframe-vers-code/)
-- [Maquettes SVG](./partie-3-interfaces-modernes/06-wireframe-vers-code/01-maquettes-svg.md)
-- [Mapping IDs vers composants](./partie-3-interfaces-modernes/06-wireframe-vers-code/02-mapping-ids.md)
-- [Design vers egui](./partie-3-interfaces-modernes/06-wireframe-vers-code/03-design-vers-egui.md)
-- [Workflow rapide design vers code](./partie-3-interfaces-modernes/06-wireframe-vers-code/04-workflow.md)
+
+> Workflow efficace pour transformer des maquettes en code.
+
+- [Maquettes SVG](./partie-3-interfaces-modernes/06-wireframe-vers-code/01-maquettes-svg.md) — Création de wireframes
+- [Mapping IDs](./partie-3-interfaces-modernes/06-wireframe-vers-code/02-mapping-ids.md) — Lier design et composants
+- [Design vers egui](./partie-3-interfaces-modernes/06-wireframe-vers-code/03-design-vers-egui.md) — Traduction pratique
+- [Workflow rapide](./partie-3-interfaces-modernes/06-wireframe-vers-code/04-workflow.md) — Itérations design/code
 
 ---
 
 ### [Partie IV — Architecture d'un Vrai Logiciel](./partie-4-architecture-logiciel/)
 
-Structurer une application maintenable et évolutive.
+> **Objectif** : Structurer une application maintenable, testable et évolutive.
+
+Cette partie couvre l'architecture logicielle. Nous appliquons les principes de clean architecture adaptés au contexte desktop.
 
 #### [Chapitre 14 : Clean Architecture pour apps desktop](./partie-4-architecture-logiciel/01-clean-architecture/)
-- [Couches (Core / App / UI / Infra)](./partie-4-architecture-logiciel/01-clean-architecture/01-couches.md)
-- [Séparation logique](./partie-4-architecture-logiciel/01-clean-architecture/02-separation-logique.md)
-- [Découplage](./partie-4-architecture-logiciel/01-clean-architecture/03-decouplage.md)
-- [Dépendances](./partie-4-architecture-logiciel/01-clean-architecture/04-dependances.md)
+
+> Organiser le code en couches indépendantes et testables.
+
+- [Couches](./partie-4-architecture-logiciel/01-clean-architecture/01-couches.md) — Core / App / UI / Infra
+- [Séparation logique](./partie-4-architecture-logiciel/01-clean-architecture/02-separation-logique.md) — Responsabilités claires
+- [Découplage](./partie-4-architecture-logiciel/01-clean-architecture/03-decouplage.md) — Interfaces et abstractions
+- [Dépendances](./partie-4-architecture-logiciel/01-clean-architecture/04-dependances.md) — Vers l'intérieur uniquement
 
 #### [Chapitre 15 : Event Bus et communication interne](./partie-4-architecture-logiciel/02-event-bus/)
-- [Channels](./partie-4-architecture-logiciel/02-event-bus/01-channels.md)
-- [Pub/sub](./partie-4-architecture-logiciel/02-event-bus/02-pub-sub.md)
-- [Messages](./partie-4-architecture-logiciel/02-event-bus/03-messages.md)
-- [Flux de données clair](./partie-4-architecture-logiciel/02-event-bus/04-flux-donnees.md)
+
+> Patterns de communication découplée entre composants.
+
+- [Channels](./partie-4-architecture-logiciel/02-event-bus/01-channels.md) — Communication via messages
+- [Pub/sub](./partie-4-architecture-logiciel/02-event-bus/02-pub-sub.md) — Abonnements multiples
+- [Messages](./partie-4-architecture-logiciel/02-event-bus/03-messages.md) — Command, Event, Query
+- [Flux de données](./partie-4-architecture-logiciel/02-event-bus/04-flux-donnees.md) — Unidirectionnel et prévisible
 
 #### [Chapitre 16 : Gestion d'état robuste](./partie-4-architecture-logiciel/03-gestion-etat/)
-- [Store global](./partie-4-architecture-logiciel/03-gestion-etat/01-store-global.md)
-- [État local](./partie-4-architecture-logiciel/03-gestion-etat/02-etat-local.md)
-- [Cache](./partie-4-architecture-logiciel/03-gestion-etat/03-cache.md)
-- [Undo stack](./partie-4-architecture-logiciel/03-gestion-etat/04-undo-stack.md)
+
+> Maintenir un état applicatif cohérent et prévisible.
+
+- [Store global](./partie-4-architecture-logiciel/03-gestion-etat/01-store-global.md) — Source unique de vérité
+- [État local](./partie-4-architecture-logiciel/03-gestion-etat/02-etat-local.md) — UI state vs app state
+- [Cache](./partie-4-architecture-logiciel/03-gestion-etat/03-cache.md) — Performance et invalidation
+- [Undo stack](./partie-4-architecture-logiciel/03-gestion-etat/04-undo-stack.md) — Historique des changements
 
 #### [Chapitre 17 : Stockage local souverain](./partie-4-architecture-logiciel/04-stockage-local/)
-- [SQLite](./partie-4-architecture-logiciel/04-stockage-local/01-sqlite.md)
-- [Migrations](./partie-4-architecture-logiciel/04-stockage-local/02-migrations.md)
-- [Offline-first](./partie-4-architecture-logiciel/04-stockage-local/03-offline-first.md)
-- [Chiffrement](./partie-4-architecture-logiciel/04-stockage-local/04-chiffrement.md)
+
+> Persister les données localement de façon fiable et sécurisée.
+
+- [SQLite](./partie-4-architecture-logiciel/04-stockage-local/01-sqlite.md) — Base de données embarquée
+- [Migrations](./partie-4-architecture-logiciel/04-stockage-local/02-migrations.md) — Évolution du schéma
+- [Offline-first](./partie-4-architecture-logiciel/04-stockage-local/03-offline-first.md) — Sync queue, conflits
+- [Chiffrement](./partie-4-architecture-logiciel/04-stockage-local/04-chiffrement.md) — AES-GCM, Argon2
 
 #### [Chapitre 18 : Fichiers, import, export et PDF](./partie-4-architecture-logiciel/05-fichiers-import-export/)
-- [Rapports](./partie-4-architecture-logiciel/05-fichiers-import-export/01-rapports.md)
-- [Factures](./partie-4-architecture-logiciel/05-fichiers-import-export/02-factures.md)
-- [CSV et JSON](./partie-4-architecture-logiciel/05-fichiers-import-export/03-csv-json.md)
-- [Intégration système](./partie-4-architecture-logiciel/05-fichiers-import-export/04-integration-systeme.md)
+
+> Générer des documents et échanger des données.
+
+- [Rapports](./partie-4-architecture-logiciel/05-fichiers-import-export/01-rapports.md) — Génération PDF
+- [Factures](./partie-4-architecture-logiciel/05-fichiers-import-export/02-factures.md) — Documents commerciaux
+- [CSV et JSON](./partie-4-architecture-logiciel/05-fichiers-import-export/03-csv-json.md) — Import/export de données
+- [Intégration système](./partie-4-architecture-logiciel/05-fichiers-import-export/04-integration-systeme.md) — Dialogues fichiers, associations
 
 #### [Chapitre 19 : Plugins et extensibilité](./partie-4-architecture-logiciel/06-plugins-extensibilite/)
-- [Modules dynamiques](./partie-4-architecture-logiciel/06-plugins-extensibilite/01-modules-dynamiques.md)
-- [Feature flags](./partie-4-architecture-logiciel/06-plugins-extensibilite/02-feature-flags.md)
-- [Architecture plugin](./partie-4-architecture-logiciel/06-plugins-extensibilite/03-architecture-plugin.md)
+
+> Concevoir une architecture extensible par des tiers.
+
+- [Modules dynamiques](./partie-4-architecture-logiciel/06-plugins-extensibilite/01-modules-dynamiques.md) — Chargement à runtime
+- [Feature flags](./partie-4-architecture-logiciel/06-plugins-extensibilite/02-feature-flags.md) — Activation conditionnelle
+- [Architecture plugin](./partie-4-architecture-logiciel/06-plugins-extensibilite/03-architecture-plugin.md) — API stable, sandboxing
 
 ---
 
 ### [Partie V — Blocs Métiers Réels](./partie-5-blocs-metiers/)
 
-Implémenter des fonctionnalités business concrètes.
+> **Objectif** : Implémenter des fonctionnalités business concrètes et réutilisables.
+
+Cette partie présente l'implémentation de fonctionnalités business. Chaque chapitre est un module réutilisable pour vos applications.
 
 #### [Chapitre 20 : Construire un mini-ERP Rust](./partie-5-blocs-metiers/01-mini-erp/)
-- [Clients](./partie-5-blocs-metiers/01-mini-erp/01-clients.md)
-- [Factures](./partie-5-blocs-metiers/01-mini-erp/02-factures.md)
-- [TVA](./partie-5-blocs-metiers/01-mini-erp/03-tva.md)
-- [PDF](./partie-5-blocs-metiers/01-mini-erp/04-pdf.md)
-- [Exports](./partie-5-blocs-metiers/01-mini-erp/05-exports.md)
+
+> Système complet de gestion commerciale : clients, factures, TVA, exports.
+
+- [Clients](./partie-5-blocs-metiers/01-mini-erp/01-clients.md) — CRUD, validation, règles métier
+- [Factures](./partie-5-blocs-metiers/01-mini-erp/02-factures.md) — Lignes, numérotation auto
+- [TVA](./partie-5-blocs-metiers/01-mini-erp/03-tva.md) — Calcul, taux, conformité
+- [PDF](./partie-5-blocs-metiers/01-mini-erp/04-pdf.md) — Génération professionnelle
+- [Exports](./partie-5-blocs-metiers/01-mini-erp/05-exports.md) — CSV, Excel, comptabilité
 
 #### [Chapitre 21 : Moteur de recherche local](./partie-5-blocs-metiers/02-moteur-recherche/)
-- [Tantivy](./partie-5-blocs-metiers/02-moteur-recherche/01-tantivy.md)
-- [Indexation](./partie-5-blocs-metiers/02-moteur-recherche/02-indexation.md)
-- [Full-text search](./partie-5-blocs-metiers/02-moteur-recherche/03-full-text-search.md)
-- [Performance](./partie-5-blocs-metiers/02-moteur-recherche/04-performance.md)
 
-#### [Chapitre 22 : Dashboard et visualisation de données](./partie-5-blocs-metiers/03-dashboard-visualisation/)
-- [KPI cards](./partie-5-blocs-metiers/03-dashboard-visualisation/01-kpi-cards.md)
-- [Charts](./partie-5-blocs-metiers/03-dashboard-visualisation/02-charts.md)
-- [Temps réel](./partie-5-blocs-metiers/03-dashboard-visualisation/03-temps-reel.md)
-- [UX data](./partie-5-blocs-metiers/03-dashboard-visualisation/04-ux-data.md)
+> Recherche full-text performante avec Tantivy.
+
+- [Tantivy](./partie-5-blocs-metiers/02-moteur-recherche/01-tantivy.md) — Moteur de recherche Rust
+- [Indexation](./partie-5-blocs-metiers/02-moteur-recherche/02-indexation.md) — Création d'index
+- [Full-text search](./partie-5-blocs-metiers/02-moteur-recherche/03-full-text-search.md) — Requêtes avancées
+- [Performance](./partie-5-blocs-metiers/02-moteur-recherche/04-performance.md) — Optimisation, cache
+
+#### [Chapitre 22 : Dashboard et visualisation](./partie-5-blocs-metiers/03-dashboard-visualisation/)
+
+> Tableaux de bord avec KPIs et graphiques en temps réel.
+
+- [KPI cards](./partie-5-blocs-metiers/03-dashboard-visualisation/01-kpi-cards.md) — Métriques clés
+- [Charts](./partie-5-blocs-metiers/03-dashboard-visualisation/02-charts.md) — Graphiques avec egui_plot
+- [Temps réel](./partie-5-blocs-metiers/03-dashboard-visualisation/03-temps-reel.md) — Mise à jour live
+- [UX data](./partie-5-blocs-metiers/03-dashboard-visualisation/04-ux-data.md) — Présentation des données
 
 #### [Chapitre 23 : IA locale dans une app Rust](./partie-5-blocs-metiers/04-ia-locale/)
-- [Embeddings](./partie-5-blocs-metiers/04-ia-locale/01-embeddings.md)
-- [Recherche sémantique](./partie-5-blocs-metiers/04-ia-locale/02-recherche-semantique.md)
-- [Inférence CPU](./partie-5-blocs-metiers/04-ia-locale/03-inference-cpu.md)
-- [Souveraineté IA](./partie-5-blocs-metiers/04-ia-locale/04-souverainete-ia.md)
+
+> Intégrer l'intelligence artificielle sans cloud avec Candle.
+
+- [Embeddings](./partie-5-blocs-metiers/04-ia-locale/01-embeddings.md) — Vecteurs de texte
+- [Recherche sémantique](./partie-5-blocs-metiers/04-ia-locale/02-recherche-semantique.md) — Similarité cosinus
+- [Inférence CPU](./partie-5-blocs-metiers/04-ia-locale/03-inference-cpu.md) — Modèles quantifiés
+- [Souveraineté IA](./partie-5-blocs-metiers/04-ia-locale/04-souverainete-ia.md) — Données privées
 
 #### [Chapitre 24 : Cas d'étude complet](./partie-5-blocs-metiers/05-cas-etude-complet/)
-- [De zéro à finie](./partie-5-blocs-metiers/05-cas-etude-complet/01-zero-a-finie.md)
-- [Code réel](./partie-5-blocs-metiers/05-cas-etude-complet/02-code-reel.md)
-- [Design system](./partie-5-blocs-metiers/05-cas-etude-complet/03-design-system.md)
-- [Packaging](./partie-5-blocs-metiers/05-cas-etude-complet/04-packaging.md)
+
+> Application NoteVault : de zéro à finie, code réel inclus.
+
+- [De zéro à finie](./partie-5-blocs-metiers/05-cas-etude-complet/01-zero-a-finie.md) — Progression complète
+- [Code réel](./partie-5-blocs-metiers/05-cas-etude-complet/02-code-reel.md) — Implémentation détaillée
+- [Design system](./partie-5-blocs-metiers/05-cas-etude-complet/03-design-system.md) — Thème appliqué
+- [Packaging](./partie-5-blocs-metiers/05-cas-etude-complet/04-packaging.md) — Distribution finale
 
 ---
 
 ### [Partie VI — Finition et Qualité Produit](./partie-6-finition-qualite/)
 
-Polir l'application pour une qualité professionnelle.
+> **Objectif** : Polir l'application pour une qualité professionnelle.
+
+Cette partie couvre les aspects qui transforment une application fonctionnelle en produit professionnel : performance perçue, accessibilité, packaging et tests.
 
 #### [Chapitre 25 : Performance perçue](./partie-6-finition-qualite/01-performance-percue/)
-- [Skeleton](./partie-6-finition-qualite/01-performance-percue/01-skeleton.md)
-- [Lazy loading](./partie-6-finition-qualite/01-performance-percue/02-lazy-loading.md)
-- [Démarrage instantané](./partie-6-finition-qualite/01-performance-percue/03-demarrage-instantane.md)
-- [Caches](./partie-6-finition-qualite/01-performance-percue/04-caches.md)
+
+> Techniques pour améliorer la perception de performance par l'utilisateur.
+
+- [Skeleton](./partie-6-finition-qualite/01-performance-percue/01-skeleton.md) — Placeholders animés
+- [Lazy loading](./partie-6-finition-qualite/01-performance-percue/02-lazy-loading.md) — Chargement différé
+- [Démarrage instantané](./partie-6-finition-qualite/01-performance-percue/03-demarrage-instantane.md) — First paint rapide
+- [Caches](./partie-6-finition-qualite/01-performance-percue/04-caches.md) — LRU, invalidation
 
 #### [Chapitre 26 : Accessibilité et ergonomie](./partie-6-finition-qualite/02-accessibilite-ergonomie/)
-- [Raccourcis clavier](./partie-6-finition-qualite/02-accessibilite-ergonomie/01-raccourcis-clavier.md)
-- [Navigation souris](./partie-6-finition-qualite/02-accessibilite-ergonomie/02-navigation-souris.md)
-- [Contrastes](./partie-6-finition-qualite/02-accessibilite-ergonomie/03-contrastes.md)
-- [Tailles et lisibilité](./partie-6-finition-qualite/02-accessibilite-ergonomie/04-tailles-lisibilite.md)
+
+> Créer une application utilisable par tous.
+
+- [Raccourcis clavier](./partie-6-finition-qualite/02-accessibilite-ergonomie/01-raccourcis-clavier.md) — Système complet
+- [Navigation clavier](./partie-6-finition-qualite/02-accessibilite-ergonomie/02-navigation-souris.md) — Focus, tab order
+- [Contrastes](./partie-6-finition-qualite/02-accessibilite-ergonomie/03-contrastes.md) — WCAG AA/AAA
+- [Tailles et lisibilité](./partie-6-finition-qualite/02-accessibilite-ergonomie/04-tailles-lisibilite.md) — Zones cliquables
 
 #### [Chapitre 27 : Packaging multiplateforme](./partie-6-finition-qualite/03-packaging-multiplateforme/)
-- [Windows](./partie-6-finition-qualite/03-packaging-multiplateforme/01-windows.md)
-- [macOS](./partie-6-finition-qualite/03-packaging-multiplateforme/02-macos.md)
-- [Linux](./partie-6-finition-qualite/03-packaging-multiplateforme/03-linux.md)
-- [Installers](./partie-6-finition-qualite/03-packaging-multiplateforme/04-installers.md)
-- [Mises à jour](./partie-6-finition-qualite/03-packaging-multiplateforme/05-mises-a-jour.md)
+
+> Distribuer sur Windows, macOS et Linux.
+
+- [Windows](./partie-6-finition-qualite/03-packaging-multiplateforme/01-windows.md) — MSI, cargo-wix, signing
+- [macOS](./partie-6-finition-qualite/03-packaging-multiplateforme/02-macos.md) — DMG, notarization, universal
+- [Linux](./partie-6-finition-qualite/03-packaging-multiplateforme/03-linux.md) — AppImage, deb, Flatpak
+- [Installers](./partie-6-finition-qualite/03-packaging-multiplateforme/04-installers.md) — UX d'installation
+- [Mises à jour](./partie-6-finition-qualite/03-packaging-multiplateforme/05-mises-a-jour.md) — Auto-update
 
 #### [Chapitre 28 : Tests UI et assurance qualité](./partie-6-finition-qualite/04-tests-ui-qualite/)
-- [Tests unitaires](./partie-6-finition-qualite/04-tests-ui-qualite/01-tests-unitaires.md)
-- [Snapshots UI](./partie-6-finition-qualite/04-tests-ui-qualite/02-snapshots-ui.md)
-- [Tests manuels](./partie-6-finition-qualite/04-tests-ui-qualite/03-tests-manuels.md)
+
+> Stratégies de test pour une qualité constante.
+
+- [Tests unitaires](./partie-6-finition-qualite/04-tests-ui-qualite/01-tests-unitaires.md) — Logique métier, mocks
+- [Snapshots UI](./partie-6-finition-qualite/04-tests-ui-qualite/02-snapshots-ui.md) — Régression visuelle
+- [Tests manuels](./partie-6-finition-qualite/04-tests-ui-qualite/03-tests-manuels.md) — Checklists, scénarios
 
 ---
 
 ### [Partie VII — Production et Business](./partie-7-production-business/)
 
-Transformer le code en produit viable.
+> **Objectif** : Transformer le code en produit viable et rentable.
+
+Cette dernière partie couvre les aspects business et de mise en production d'une application desktop professionnelle.
 
 #### [Chapitre 29 : Licences et modèles économiques](./partie-7-production-business/01-licences-modeles-economiques/)
-- [Types de licences](./partie-7-production-business/01-licences-modeles-economiques/01-types-licences.md)
-- [Génération et validation](./partie-7-production-business/01-licences-modeles-economiques/02-generation-validation.md)
-- [Activation offline](./partie-7-production-business/01-licences-modeles-economiques/03-activation-offline.md)
-- [Modèle freemium](./partie-7-production-business/01-licences-modeles-economiques/04-modele-freemium.md)
+
+> Choisir et implémenter un modèle de monétisation.
+
+- [Types de licences](./partie-7-production-business/01-licences-modeles-economiques/01-types-licences.md) — Perpétuelle, abo, freemium
+- [Génération et validation](./partie-7-production-business/01-licences-modeles-economiques/02-generation-validation.md) — Clés signées, machine ID
+- [Activation offline](./partie-7-production-business/01-licences-modeles-economiques/03-activation-offline.md) — Sans serveur
+- [Modèle freemium](./partie-7-production-business/01-licences-modeles-economiques/04-modele-freemium.md) — Limites, upgrade
 
 #### [Chapitre 30 : Distribution et marketing](./partie-7-production-business/02-distribution-marketing/)
-- [Site web produit](./partie-7-production-business/02-distribution-marketing/01-site-web.md)
-- [SEO pour applications desktop](./partie-7-production-business/02-distribution-marketing/02-seo.md)
-- [Page de téléchargement](./partie-7-production-business/02-distribution-marketing/03-page-telechargement.md)
-- [Canaux de distribution](./partie-7-production-business/02-distribution-marketing/04-canaux.md)
+
+> Faire connaître et distribuer votre application.
+
+- [Site web produit](./partie-7-production-business/02-distribution-marketing/01-site-web.md) — Landing page efficace
+- [SEO](./partie-7-production-business/02-distribution-marketing/02-seo.md) — Visibilité Google
+- [Page de téléchargement](./partie-7-production-business/02-distribution-marketing/03-page-telechargement.md) — Détection OS, checksums
+- [Canaux](./partie-7-production-business/02-distribution-marketing/04-canaux.md) — Stores, package managers
 
 #### [Chapitre 31 : Support et maintenance](./partie-7-production-business/03-support-maintenance/)
-- [Documentation utilisateur](./partie-7-production-business/03-support-maintenance/01-documentation.md)
-- [Feedback in-app](./partie-7-production-business/03-support-maintenance/02-feedback.md)
-- [Télémétrie respectueuse](./partie-7-production-business/03-support-maintenance/03-telemetrie.md)
-- [Gestion des bugs](./partie-7-production-business/03-support-maintenance/04-gestion-bugs.md)
+
+> Accompagner les utilisateurs et maintenir le produit.
+
+- [Documentation](./partie-7-production-business/03-support-maintenance/01-documentation.md) — In-app, contextuelle
+- [Feedback in-app](./partie-7-production-business/03-support-maintenance/02-feedback.md) — Widget, logs
+- [Télémétrie](./partie-7-production-business/03-support-maintenance/03-telemetrie.md) — Opt-in, anonymisée
+- [Gestion des bugs](./partie-7-production-business/03-support-maintenance/04-gestion-bugs.md) — Crash reports, triage
 
 #### [Chapitre 32 : Monétisation avancée](./partie-7-production-business/04-monetisation-avancee/)
-- [Modules complémentaires](./partie-7-production-business/04-monetisation-avancee/01-modules-complementaires.md)
-- [Personnalisation](./partie-7-production-business/04-monetisation-avancee/02-personnalisation.md)
-- [Services associés](./partie-7-production-business/04-monetisation-avancee/03-services.md)
-- [Affiliation](./partie-7-production-business/04-monetisation-avancee/04-affiliation.md)
+
+> Stratégies de revenus complémentaires.
+
+- [Modules complémentaires](./partie-7-production-business/04-monetisation-avancee/01-modules-complementaires.md) — Add-ons payants
+- [Personnalisation](./partie-7-production-business/04-monetisation-avancee/02-personnalisation.md) — White-label
+- [Services associés](./partie-7-production-business/04-monetisation-avancee/03-services.md) — Support premium, formation
+- [Affiliation](./partie-7-production-business/04-monetisation-avancee/04-affiliation.md) — Programme partenaires
 
 #### [Chapitre 33 : Vision long terme](./partie-7-production-business/05-vision-long-terme/)
-- [Roadmap produit](./partie-7-production-business/05-vision-long-terme/01-roadmap.md)
-- [Communauté](./partie-7-production-business/05-vision-long-terme/02-communaute.md)
-- [Open source](./partie-7-production-business/05-vision-long-terme/03-open-source.md)
-- [Évolution technique](./partie-7-production-business/05-vision-long-terme/04-evolution-technique.md)
-- [Métriques](./partie-7-production-business/05-vision-long-terme/05-metriques.md)
+
+> Faire évoluer le produit sur le long terme.
+
+- [Roadmap](./partie-7-production-business/05-vision-long-terme/01-roadmap.md) — Planification, priorisation
+- [Communauté](./partie-7-production-business/05-vision-long-terme/02-communaute.md) — Feature voting, Discord
+- [Open source](./partie-7-production-business/05-vision-long-terme/03-open-source.md) — Stratégie hybride
+- [Évolution technique](./partie-7-production-business/05-vision-long-terme/04-evolution-technique.md) — Migrations, compatibilité
+- [Métriques](./partie-7-production-business/05-vision-long-terme/05-metriques.md) — KPIs, NPS, churn
 
 ---
 
 ### [Annexes](./annexes/)
 
-Ressources de référence complémentaires.
+> Ressources de référence rapide.
 
-- [A. Cargo.toml complet commenté](./annexes/A-cargo-toml-complet.md)
-- [B. Cheatsheet egui](./annexes/B-cheatsheet-egui.md)
-- [C. Patterns Rust essentiels](./annexes/C-patterns-rust.md)
-- [D. Checklist de lancement](./annexes/D-checklist-lancement.md)
-- [E. Ressources et liens](./annexes/E-ressources-liens.md)
-- [F. Glossaire](./annexes/F-glossaire.md)
+| Annexe | Description |
+|--------|-------------|
+| [A. Cargo.toml complet](./annexes/A-cargo-toml-complet.md) | Configuration avec toutes les dépendances commentées |
+| [B. Cheatsheet egui](./annexes/B-cheatsheet-egui.md) | Référence rapide des widgets et layouts |
+| [C. Patterns Rust](./annexes/C-patterns-rust.md) | Résumé des patterns utilisés |
+| [D. Checklist de lancement](./annexes/D-checklist-lancement.md) | Todo-list avant release |
+| [E. Ressources et liens](./annexes/E-ressources-liens.md) | Documentation, tutoriels, communautés |
+| [F. Glossaire](./annexes/F-glossaire.md) | Définitions des termes techniques |
 
 ---
 
-## Prérequis
+## Pour commencer
+
+### Prérequis
 
 - Connaissance basique de Rust (variables, fonctions, structs)
 - Familiarité avec la ligne de commande
 - Envie de créer des logiciels de qualité
 
-## Comment utiliser ce livre
+### Comment utiliser ce livre
 
-1. **Lecture linéaire** : Suivez les parties dans l'ordre pour une progression cohérente
-2. **Référence** : Consultez les chapitres spécifiques selon vos besoins
-3. **Pratique** : Chaque chapitre contient des exemples de code exécutables
-4. **Projet fil rouge** : Construisez progressivement une application complète
+| Mode | Description |
+|------|-------------|
+| **Lecture linéaire** | Suivez les parties dans l'ordre pour une progression cohérente |
+| **Référence** | Consultez les chapitres spécifiques selon vos besoins |
+| **Pratique** | Chaque chapitre contient des exemples de code exécutables |
+| **Projet fil rouge** | Construisez progressivement une application complète |
 
-## Code source
+### Code source
 
-Tous les exemples de code sont disponibles et testés. Les snippets sont conçus pour être copiés-collés et adaptés à vos projets.
+Tous les exemples sont testés et prêts à l'emploi :
 
 ```rust
 // Un avant-goût de ce que nous allons construire
@@ -316,10 +455,14 @@ fn main() -> eframe::Result<()> {
 }
 ```
 
+---
+
 ## Licence
 
-Ce livre est publié sous licence MIT. Vous êtes libre de l'utiliser, le modifier et le distribuer.
+Ce livre est publié sous licence **MIT**. Vous êtes libre de l'utiliser, le modifier et le distribuer.
 
 ---
 
-**Commençons le voyage vers la maîtrise du développement desktop en Rust.**
+<p align="center">
+  <strong>Commençons le voyage vers la maîtrise du développement desktop en Rust.</strong>
+</p>
